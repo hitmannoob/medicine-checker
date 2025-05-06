@@ -9,8 +9,9 @@ col1, col2, col3 = st.columns([2, 1, 2])
 col2.title(":green[Medicine Checker]")
 st.markdown("***This tool helps you check if the prescribed medicine is correct or not based on the symptoms you provide.***")
 URI = st.secrets["URI"]
-AUTH = st.secrets["AUTH"]
-driver = GraphDatabase.driver(URI, auth=AUTH)
+AUTH_DATABASE = st.secrets["AUTH"]["AUTH_DATABASE"]
+AUTH_INSTANCE =st.secrets["AUTH"]["AUTH_INSTANCE"]
+driver = GraphDatabase.driver(URI, auth=(AUTH_DATABASE, AUTH_INSTANCE))
 OPENAI_KEY = st.secrets["OPENAI_KEY"]
 
 
